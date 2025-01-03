@@ -7,10 +7,10 @@ export default {
     extend: {
       colors: {
         background: "rgb(var(--background))",
+        foreground: "rgb(var(--foreground))",
         primary: "rgb(var(--primary))",
-        text: "rgb(var(--text))",
       }
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-motion')],
 }

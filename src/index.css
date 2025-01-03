@@ -5,12 +5,12 @@
 @layer base {
    :root {
       --background: 0, 0, 0;
+      --foreground: 255, 255, 255;
       --primary: 145, 166, 255;
-      --text: 255, 255, 255;
    }
 }
 
 :root {
    background-color: rgb(var(--background));
-   color: rgb(var(--text));
+   color: rgb(var(--foreground));
 }
