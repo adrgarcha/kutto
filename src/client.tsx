@@ -15,6 +15,20 @@ function App() {
       setTimeout(() => setIsAnimating(false), 500);
    };
 
+   const handleSubmit = async (e: Event) => {
+      e.preventDefault();
+      const form = e.target as HTMLFormElement;
+      const input = form.querySelector('input') as HTMLInputElement;
+      const url = input.value;
+
+      if (!url) return;
+
+      const response = await client.urls.$post({
+         json: { link: url },
+      });
+      console.log(response);
+   };
+
    return (
       <>
          <Background />
@@ -40,7 +54,7 @@ function App() {
                <br />
                Your go-to URL shortener for seamless connections.
             </p>
-            <form class="flex rounded-lg" onSubmit={(e: any) => e.preventDefault()}>
+            <form class="flex rounded-lg" onSubmit={handleSubmit}>
                <input
                   type="url"
                   placeholder="Enter your long and boring URL here..."
