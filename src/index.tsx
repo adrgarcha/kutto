@@ -1,7 +1,16 @@
+import 'dotenv/config';
+import { drizzle } from 'drizzle-orm/libsql';
 import { Hono } from 'hono';
 import urls from './routers/urls';
 
 const app = new Hono();
+
+export const db = drizzle({
+   connection: {
+      url: process.env.TURSO_DATABASE_URL!,
+      authToken: process.env.TURSO_AUTH_TOKEN!,
+   },
+});
 
 const routes = app.route('/', urls);
 
