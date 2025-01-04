@@ -13,7 +13,9 @@ const app = new Hono()
       return c.json(urls);
    })
    .post('/urls', zValidator('json', z.object({ link: z.string() })), async c => {
-      const { link } = await c.req.json();
+      let { link } = (await c.req.json()) as { link: string };
+      link = link.endsWith('/') ? link.slice(0, -1) : link;
+
       const hash = crypto.createHash('sha256').update(link).digest('hex').slice(0, 8);
 
       const query = await db.select().from(urlsTable).where(eq(urlsTable.hash, hash));
