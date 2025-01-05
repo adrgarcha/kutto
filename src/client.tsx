@@ -2,7 +2,6 @@ import { render } from 'hono/jsx/dom';
 import Background from './components/background';
 import Navbar from './components/navbar';
 import ShortenUrlForm from './components/shorten-url-form';
-import UrlTable from './components/url-table';
 
 function App() {
    return (
@@ -21,7 +20,6 @@ function App() {
                Your go-to URL shortener for seamless connections.
             </p>
             <ShortenUrlForm />
-            <UrlTable />
          </main>
       </>
    );

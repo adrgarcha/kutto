@@ -1,5 +1,5 @@
 import { zValidator } from '@hono/zod-validator';
-import { desc, eq } from 'drizzle-orm';
+import { eq } from 'drizzle-orm';
 import { Hono } from 'hono';
 import { HTTPException } from 'hono/http-exception';
 import crypto from 'node:crypto';
@@ -8,10 +8,6 @@ import { db } from '..';
 import { urlsTable } from '../db/schema';
 
 const app = new Hono()
-   .get('/urls', async c => {
-      const urls = await db.select().from(urlsTable).orderBy(desc(urlsTable.createdAt)).limit(3);
-      return c.json(urls);
-   })
    .post('/urls', zValidator('json', z.object({ link: z.string() })), async c => {
       let { link } = (await c.req.json()) as { link: string };
       link = link.endsWith('/') ? link.slice(0, -1) : link;
