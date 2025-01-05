@@ -4,7 +4,7 @@ import { AppType } from '..';
 import Copy from './icons/copy';
 import Scissors from './icons/scissors';
 
-const client = hc<AppType>('http://localhost:5173/');
+const client = hc<AppType>(import.meta.env.BASE_URL);
 
 export default function ShortenUrlForm() {
    const [isLeaving, setIsLeaving] = useState(false);
