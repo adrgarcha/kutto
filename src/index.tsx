@@ -14,6 +14,8 @@ app.get('/', c => {
          <head>
             <meta charSet="utf-8" />
             <meta content="width=device-width, initial-scale=1" name="viewport" />
+            <meta name="description" content="Fast, simple and reliable URL shortener. " />
+            <link rel="icon" href="./kutto.svg" />
             <title>Kutto</title>
             {import.meta.env.PROD ? (
                <>
