@@ -4,11 +4,13 @@ import { Hono } from 'hono';
 import { HTTPException } from 'hono/http-exception';
 import crypto from 'node:crypto';
 import { z } from 'zod';
-import { db } from '..';
+import createDb from '../db/db';
 import { urlsTable } from '../db/schema';
 
 const app = new Hono()
    .post('/urls', zValidator('json', z.object({ link: z.string() })), async c => {
+      const db = createDb(c.env);
+
       let { link } = (await c.req.json()) as { link: string };
       link = link.endsWith('/') ? link.slice(0, -1) : link;
 
@@ -24,6 +26,8 @@ const app = new Hono()
       return c.json({ shortUrl }, 201);
    })
    .get('/:hash', async c => {
+      const db = createDb(c.env);
+
       const { fullUrl } = (
          await db
             .select()

@@ -1,18 +1,8 @@
-import { createClient } from '@libsql/client/http';
-import { drizzle } from 'drizzle-orm/libsql';
+import 'dotenv/config';
 import { Hono } from 'hono';
-import * as schema from './db/schema';
 import urls from './routers/urls';
 
 const app = new Hono();
-
-export const db = drizzle(
-   createClient({
-      url: import.meta.env.VITE_TURSO_DATABASE_URL!,
-      authToken: import.meta.env.VITE_TURSO_AUTH_TOKEN,
-   }),
-   { schema }
-);
 
 const routes = app.route('/', urls);
 
