@@ -12,8 +12,7 @@ function App() {
             <h1 class="font-black text-center text-4xl md:text-6xl motion-preset-slide-up">
                Cut the clutter,
                <br />
-               share smarter with
-               <br class="block md:hidden" />
+               share smarter with <br class="block md:hidden" />
                Kutto
             </h1>
             <p class="text-center text-xs md:text-base mb-8 mt-2 leading-snug opacity-80 motion-preset-slide-up motion-delay-200">
