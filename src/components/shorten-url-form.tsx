@@ -36,11 +36,11 @@ export default function ShortenUrlForm() {
 
    return (
       <>
-         <form class="flex rounded-lg" onSubmit={handleSubmit}>
+         <form class="flex justify-center rounded-lg w-full px-6" onSubmit={handleSubmit}>
             <input
                type="url"
-               placeholder="Enter your long and boring URL here..."
-               class="w-[600px] pl-4 rounded-s-lg caret-primary text-background"
+               placeholder={window.innerWidth < 768 ? 'Enter your long URL here...' : 'Enter your long and boring URL here...'}
+               class="w-full md:w-[600px] pl-4 rounded-s-lg caret-primary text-background text-sm md:text-base placeholder:text-sm md:placeholder:text-base"
             />
             <ShortenButton />
          </form>
@@ -50,7 +50,7 @@ export default function ShortenUrlForm() {
                   ${
                      isLeaving ? 'motion-opacity-out-0 motion-translate-y-out-100 motion-blur-out motion-duration-300' : 'motion-preset-rebound-down'
                   }`}>
-               <span class="text-lg font-medium">{shortenedUrl}</span>
+               <span class="font-medium md:text-lg">{shortenedUrl}</span>
                <CopyButton text={shortenedUrl} />
             </div>
          )}

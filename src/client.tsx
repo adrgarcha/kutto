@@ -9,12 +9,14 @@ function App() {
          <Background />
          <Navbar />
          <main class="flex flex-col items-center justify-center h-screen">
-            <h1 class="font-black text-center text-6xl motion-preset-slide-up">
+            <h1 class="font-black text-center text-4xl md:text-6xl motion-preset-slide-up">
                Cut the clutter,
                <br />
-               share smarter with Kutto
+               share smarter with
+               <br class="block md:hidden" />
+               Kutto
             </h1>
-            <p class="text-center mb-8 mt-2 leading-snug opacity-80 motion-preset-slide-up motion-delay-200">
+            <p class="text-center text-xs md:text-base mb-8 mt-2 leading-snug opacity-80 motion-preset-slide-up motion-delay-200">
                Kutto makes sharing links effortless. Fast, simple, and reliable.
                <br />
                Your go-to URL shortener for seamless connections.

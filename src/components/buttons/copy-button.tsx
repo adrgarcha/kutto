@@ -14,9 +14,9 @@ export default function CopyButton({ text }: { text: string }) {
       <button
          onClick={copyToClipboard}
          aria-label="Copy to clipboard"
-         class={`size-6 hover:text-primary transition-colors
+         class={`hover:text-primary transition-colors
             ${hasClickCopy ? 'motion-rotate-in-[-1turn] motion-duration-700' : ''}`}>
-         <Copy />
+         <Copy className="size-5 md:size-6" />
       </button>
    );
 }
