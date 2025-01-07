@@ -40,7 +40,7 @@ export default function ShortenUrlForm() {
             <input
                type="url"
                placeholder={window.innerWidth < 768 ? 'Enter your long URL here...' : 'Enter your long and boring URL here...'}
-               class="w-full md:w-[600px] pl-4 rounded-s-lg caret-primary text-background text-sm md:text-base placeholder:text-sm md:placeholder:text-base"
+               class="w-full md:w-[600px] pl-4 rounded-s-lg rounded-e-none caret-primary text-background text-sm md:text-base placeholder:text-sm md:placeholder:text-base"
             />
             <ShortenButton />
          </form>
