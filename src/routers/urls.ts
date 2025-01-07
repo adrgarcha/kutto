@@ -2,7 +2,7 @@ import { zValidator } from '@hono/zod-validator';
 import { eq } from 'drizzle-orm';
 import { Hono } from 'hono';
 import { HTTPException } from 'hono/http-exception';
-import crypto from 'node:crypto';
+import { createHash } from 'node:crypto';
 import { z } from 'zod';
 import createDb from '../db/db';
 import { urlsTable } from '../db/schema';
@@ -14,7 +14,8 @@ const app = new Hono()
       let { link } = (await c.req.json()) as { link: string };
       link = link.endsWith('/') ? link.slice(0, -1) : link;
 
-      const hash = crypto.createHash('sha256').update(link).digest('hex').slice(0, 8);
+      const hashData = link + Date.now();
+      const hash = createHash('sha256').update(hashData).digest('hex').slice(0, 8);
 
       const query = await db.select().from(urlsTable).where(eq(urlsTable.hash, hash));
       const urlExists = query.length > 0;
